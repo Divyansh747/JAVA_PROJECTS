@@ -1,11 +1,12 @@
 import java.awt.*;  
 import java.awt.event.*;  
+import java.util.Stack;
 
 class Calculator {
 
     static String s="";
     static int a,b;
-    static boolean flag=false;
+
 
 public static void main(String[] args) {  
     
@@ -51,84 +52,83 @@ public static void main(String[] args) {
     b1.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){  
             tf.setText(s+"1"); 
-            s=s+"1"; 
+            s=s+"1 "; 
         }   });  
     b2.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){  
             tf.setText(s+"2");  
-            s=s+"2";
+            s=s+"2 ";
         }   });  
     b3.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){  
             tf.setText(s+"3");
-            s=s+"3";  
+            s=s+"3 ";  
         }   });  
     b4.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){  
             tf.setText(s+"4");  
-            s=s+"4";
+            s=s+"4 ";
         }   });  
     b5.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){  
             tf.setText(s+"5");  
-            s=s+"5"; 
+            s=s+"5 "; 
        }   });  
     b6.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){  
             tf.setText(s+"6");
-            s=s+"6";  
+            s=s+"6 ";  
         }   });  
     b7.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){  
             tf.setText(s+"7");  
-            s=s+"7";
+            s=s+"7 ";
         }   });  
     b8.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){  
             tf.setText(s+"8");  
-            s=s+"8";
+            s=s+"8 ";
         }   });  
     b9.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){  
             tf.setText(s+"9");  
-            s=s+"9";
+            s=s+"9 ";
         }   });  
     b0.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){  
             tf.setText(s+"0"); 
-            s=s+"0"; 
+            s=s+"0 "; 
         }   });  
     badd.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){  
             tf.setText(s+"+");  
-            s=s+"+";  
+            s=s+"+ ";  
       }   });  
     bsub.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){  
             tf.setText(s+"-");  
-            s=s+"-";    
+            s=s+"- ";    
     }   });  
     bdiv.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){  
             tf.setText(s+"/");  
-            s=s+"/";  
+            s=s+"/ ";  
       }   });  
     bmul.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){  
             tf.setText(s+"*");  
-            s=s+"*";  
+            s=s+"* ";  
       }   });  
     bres.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){  
-           tf.setText(s+"="); 
-           //s=s+"=";
-           //EvaluateString(s);
+           tf.setText("= "); 
+           int result = EvaluateString(s);
+           tf.setText(Integer.toString(result));
         } });
     bcls.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){  
             tf.setText(s+" "); 
-            s=" ";
-            flag=false; 
+            s=" "; 
         }   });
 
     f.add(b1);
@@ -152,14 +152,75 @@ public static void main(String[] args) {
     f.setSize(400,500);  
     f.setLayout(null);  
     f.setVisible(true);
-    
-/*    string result;
-    
-    string EvaluateString(String s){
-        
-        return result;
-    
-    }
-*/
 }  
+    static int EvaluateString(String s1) 
+	{
+		char tokens[] = s1.toCharArray();
+
+		Stack<Integer> values = new Stack<Integer>();
+		Stack<Character> ops = new Stack<Character>();
+
+		for(int i = 0; i< tokens.length; i++)
+		{
+			if(tokens[i] == ' ') 
+			{
+				continue;
+			}
+			if(tokens[i] >= '0' && tokens[i] <= '9')
+			{
+				StringBuffer buff = new StringBuffer();
+				while(i < tokens.length && tokens[i] >= '0' && tokens[i] <= '9') {
+					buff.append(tokens[i++]);
+				}
+				values.push(Integer.parseInt(buff.toString()));
+			}
+			else if(tokens[i] == '+' || tokens[i] == '-' || tokens[i] == '*' || tokens[i] == '/')
+			{
+				while(!ops.empty() && hasPrecedence(tokens[i], ops.peek())) {
+					values.push(result(ops.pop(), values.pop(), values.pop()));
+				}
+				ops.push(tokens[i]);
+			}
+		}
+		while(!ops.empty())
+		{
+			values.push(result(ops.pop(), values.pop(), values.pop()));
+		}
+		return values.pop();
+	}
+
+	static boolean hasPrecedence(char op1, char op2)
+	{
+		if((op1 == '*' || op1 == '/') && (op2 == '+' || op2 == '-')) 
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+
+	static int result(char op, int b, int a)
+	{
+		switch(op)
+		{
+			case '+':
+				return a+b;
+			case '-':
+				return a-b;
+			case '*':
+				return a*b;
+			case '/':
+				if(b != 0)
+				{
+					return a/b;
+				}
+				else 
+				{
+					throw new UnsupportedOperationException("Cannot divide by zero");
+				}
+		}
+		return 0;
+	}		
 } 

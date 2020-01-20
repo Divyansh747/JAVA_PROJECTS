@@ -52,76 +52,76 @@ public static void main(String[] args) {
     b1.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){  
             tf.setText(s+"1"); 
-            s=s+"1 "; 
+            s=s+"1"; 
         }   });  
     b2.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){  
             tf.setText(s+"2");  
-            s=s+"2 ";
+            s=s+"2";
         }   });  
     b3.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){  
             tf.setText(s+"3");
-            s=s+"3 ";  
+            s=s+"3";  
         }   });  
     b4.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){  
             tf.setText(s+"4");  
-            s=s+"4 ";
+            s=s+"4";
         }   });  
     b5.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){  
             tf.setText(s+"5");  
-            s=s+"5 "; 
+            s=s+"5"; 
        }   });  
     b6.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){  
             tf.setText(s+"6");
-            s=s+"6 ";  
+            s=s+"6";  
         }   });  
     b7.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){  
             tf.setText(s+"7");  
-            s=s+"7 ";
+            s=s+"7";
         }   });  
     b8.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){  
             tf.setText(s+"8");  
-            s=s+"8 ";
+            s=s+"8";
         }   });  
     b9.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){  
             tf.setText(s+"9");  
-            s=s+"9 ";
+            s=s+"9";
         }   });  
     b0.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){  
             tf.setText(s+"0"); 
-            s=s+"0 "; 
+            s=s+"0"; 
         }   });  
     badd.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){  
             tf.setText(s+"+");  
-            s=s+"+ ";  
+            s=s+" + ";  
       }   });  
     bsub.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){  
             tf.setText(s+"-");  
-            s=s+"- ";    
+            s=s+" - ";    
     }   });  
     bdiv.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){  
             tf.setText(s+"/");  
-            s=s+"/ ";  
+            s=s+" / ";  
       }   });  
     bmul.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){  
             tf.setText(s+"*");  
-            s=s+"* ";  
+            s=s+" * ";  
       }   });  
     bres.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){  
-           tf.setText("= "); 
+           tf.setText(" = "); 
            int result = EvaluateString(s);
            tf.setText(Integer.toString(result));
         } });

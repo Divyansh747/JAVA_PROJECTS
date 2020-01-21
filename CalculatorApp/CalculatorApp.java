@@ -29,7 +29,8 @@ public static void main(String[] args) {
     Button bmul=new Button("x");  
     Button bsub=new Button("-");
     Button bres=new Button("="); 
-    Button bcls=new Button("cls");  
+    Button bcls=new Button("cls");
+    Button bdot=new Button(".");
 
     b1.setBounds(50,100,60,30);  
     b2.setBounds(150,100,60,30);  
@@ -47,7 +48,7 @@ public static void main(String[] args) {
     bmul.setBounds(150,300,60,30); 
     bres.setBounds(250,300,60,30);  
     bcls.setBounds(50,350,60,30);  
-
+    bdot.setBounds(150,350,60,30);
 	
     b1.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){  
@@ -122,14 +123,19 @@ public static void main(String[] args) {
     bres.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){  
            tf.setText(" = "); 
-           int result = EvaluateString(s);
-           tf.setText(Integer.toString(result));
+           float result = EvaluateString(s);
+           tf.setText(Float.toString(result));
         } });
     bcls.addActionListener(new ActionListener(){  
         public void actionPerformed(ActionEvent e){  
             tf.setText(s+" "); 
             s=" "; 
         }   });
+    bdot.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e){
+            tf.setText(s+".");
+            s=s+".";
+      }   });
 
     f.add(b1);
     f.add(b2);
@@ -147,17 +153,18 @@ public static void main(String[] args) {
     f.add(bdiv);
     f.add(bres);
     f.add(bcls);
-    f.add(tf);  
+    f.add(tf);
+    f.add(bdot);
     
     f.setSize(400,500);  
     f.setLayout(null);  
     f.setVisible(true);
 }  
-    static int EvaluateString(String s1) 
+    static float EvaluateString(String s1) 
 	{
 		char tokens[] = s1.toCharArray();
 
-		Stack<Integer> values = new Stack<Integer>();
+		Stack<Float> values = new Stack<Float>();
 		Stack<Character> ops = new Stack<Character>();
 
 		for(int i = 0; i< tokens.length; i++)
@@ -166,13 +173,20 @@ public static void main(String[] args) {
 			{
 				continue;
 			}
-			if(tokens[i] >= '0' && tokens[i] <= '9')
+			if(tokens[i] >= '0' && tokens[i] <= '9' || tokens[i] == '.')
 			{
 				StringBuffer buff = new StringBuffer();
-				while(i < tokens.length && tokens[i] >= '0' && tokens[i] <= '9') {
-					buff.append(tokens[i++]);
+				while(i < tokens.length ) {
+					if( tokens[i] >= '0' && tokens[i] <= '9' || tokens[i] == '.')
+					{
+						buff.append(tokens[i++]);
+					}
+					else 
+					{
+						break;
+					}
 				}
-				values.push(Integer.parseInt(buff.toString()));
+				values.push(Float.parseFloat(buff.toString()));
 			}
 			else if(tokens[i] == '+' || tokens[i] == '-' || tokens[i] == '*' || tokens[i] == '/')
 			{
@@ -201,7 +215,7 @@ public static void main(String[] args) {
 		}
 	}
 
-	static int result(char op, int b, int a)
+	static float result(char op, float b, float a)
 	{
 		switch(op)
 		{

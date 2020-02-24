@@ -13,7 +13,8 @@ public static void main(String[] args) {
     Frame f=new Frame("Button Example");  
     final TextField tf=new TextField();  
     tf.setBounds(50,50, 300,40);  
-
+    tf.setEditable(false);
+	
     Button b1=new Button("1");  
     Button b2=new Button("2");  
     Button b3=new Button("3");  

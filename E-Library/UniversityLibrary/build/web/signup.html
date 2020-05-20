@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>signup.html</title>
+            <link rel="stylesheet" type="text/css" href="CSS/bootstrap.css" >
+            <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+    
+    <!-- Nav Bar -->
+        <!-- Image and text -->
+        <nav class="navbar navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">
+                <h1><img src="Images/SVVV-logo.jpg" width="60" height="60" class="d-inline-block align-top" alt="">
+                    Shri Vaishnav Vidyapeeth Vishwavidyalaya</h1>
+            </a>
+        </nav>
+
+        <!-- End of Nav Bar -->
+        <div class="links" style="background-color:white">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="signup.html">Sign up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="LogoutServlet">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ProfileServlet">Profile</a>
+                </li>
+            </ul></div>
+        
+    
+    <center>
+        
+        <h1><b>Singup Portal</b></h1><br><br>
+
+        <form action="SignupServlet" method="post">  
+            <div class="form-group">
+                <label>Email:</label><br>
+                <input type="text"  name="email"> 
+            </div>
+            <div class="form-group">
+                <label>Password:</label><br>
+                <input type="password" name="password"> 
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary mb-2" value="signup">Sign up</button>
+            </div>
+        </form>  
+
+    </center>
+</body>   
+</html>

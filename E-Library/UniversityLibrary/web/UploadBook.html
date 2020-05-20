@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>login</title>
+        <meta charset="UTF-8">
+            <link rel="stylesheet" type="text/css" href="CSS/bootstrap.css" >
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <!-- Nav Bar -->
+        <!-- Image and text -->
+        <nav class="navbar navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">
+                <h1><img src="https://svvverp.mastersofterp.in/IMAGES/login-img.jpg" width="60" height="60" class="d-inline-block align-top" alt="">
+                    Shri Vaishnav Vidyapeeth Vishwavidyalaya</h1>
+            </a>
+        </nav>
+
+        <!-- End of Nav Bar -->
+        <div class="links" style="background-color:white">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="signup.html">Sign up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="LogoutServlet">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ProfileServlet">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Books.html">Library</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="UploadBook.html">Upload Book</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="UserActivity.html">User Activity</a>
+                </li>
+            </ul></div><br>
+
+    <center>
+        <h1><b>Upload Book</b></h1><br>
+
+        <form action="UploadServlet" method="post">  
+            <div class="form-group">
+                <label>ISBN:</label><br>
+                <input type="text" name="ISBN"> 
+            </div>
+            <div class="form-group">
+                <label>Book Name:</label><br>
+                <input type="text" name="BookName"> 
+            </div>
+            <div class="form-group">
+                <label>Author:</label><br>
+                <input type="text" name="Author"> 
+            </div>
+            <div class="form-group">
+                <label>Department Name:</label><br>
+                <input type="text" name="DepartName"> 
+            </div>
+            <div class="form-group">
+                <label>Course Name:</label><br>
+                <input type="text" name="CourseName"> 
+            </div>
+            <div class="form-group">
+                <label>Location:</label><br>
+                <input type="text" name="Location"> 
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary mb-2" value="Upload">Upload</button>
+            </div>
+        </form>  
+
+    </center>
+</body>
+</html>

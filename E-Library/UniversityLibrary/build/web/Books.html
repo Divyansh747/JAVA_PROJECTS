@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Books</title>
+        <meta charset="UTF-8">
+            <link rel="stylesheet" type="text/css" href="CSS/bootstrap.css" >
+ 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        
+          <!-- Nav Bar -->
+        <!-- Image and text -->
+        <nav class="navbar navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">
+                <h1><img src="Images/SVVV-logo.jpg" width="60" height="60" class="d-inline-block align-top" alt="">
+                    Shri Vaishnav Vidyapeeth Vishwavidyalaya</h1>
+            </a>
+        </nav>
+        <!-- End of Nav Bar -->
+        <div class="links" style="background-color:white">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="signup.html">Sign up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="LogoutServlet">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="Books.html">Library</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ProfileServlet">Profile</a>
+                </li>
+            </ul></div>
+        <br><br>
+      
+        
+        <div><form action="BookServlet" method="get">  
+                <table align="center">
+                    <tr>
+                        <td>Select Department :</td>
+                    <td> <select name="department">
+                                <option value="CSE">Computer Science</option>
+                                <option value="IT">Information Technology</option>
+                                <option value="EC">Electronic and Communication</option>
+                                <option value="EE">Electrical and Electronics</option>
+                               </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><button type="submit" class="btn btn-primary mb-2" value="Send">Submit</button></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </form>
+
+        </div>
+    </body>
+</html>

@@ -86,7 +86,31 @@ class ItemBilling {
     f.add(b4);
     f.add(editorPane);
     
-  
+
+    /* CSV file reading section */
+    String line = "";  
+    String splitBy = ",";
+    int i = 0;
+    try   
+    {  
+    /* Load CSV File items in FileItem array */  
+        BufferedReader br = new BufferedReader(new FileReader("menulist.csv"));  
+        while ((line = br.readLine()) != null)    
+        {  
+            String[] ItemDescription = line.split(splitBy);    // use comma as separator  
+            FileItem[i] = ItemDescription[0];
+            i++;
+        }    
+        br.close();
+    }   
+    catch (IOException e)   
+    {  
+        e.printStackTrace();  
+    }     
+
+      
+
+
     /* Frame layout section */
     f.setSize(1000,1000);
     f.setLayout(null);

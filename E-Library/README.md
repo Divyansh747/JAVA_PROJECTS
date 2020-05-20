@@ -1,9 +1,3 @@
-Developed By:- Divyansh Rahangdale
-Submitted to:- Dr Jayendra Barua sir
-
-Enrollment ID :- 18100BTCSES02782
-Class :- CSE Redhat
-
 Topic:- E-Library
 
 Note:- Project Developed using Netbeans 

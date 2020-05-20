@@ -108,7 +108,13 @@ class ItemBilling {
         e.printStackTrace();  
     }     
 
-      
+     /* JComboBox Sectin */
+    JComboBox cb = new JComboBox<>(FileItem);  
+    cb.setEditable(true);
+    cb.setBounds(200, 150,200,30);    
+    f.add(cb);              
+    AutoCompleteDecorator.decorate(cb);
+  
 
 
     /* Frame layout section */

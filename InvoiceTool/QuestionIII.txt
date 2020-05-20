@@ -1,0 +1,16 @@
+Invoice(Bill) Generation Application
+
+
+An Invoice Generation System generates the bill/invoices for shop/store keepers. you are required to use Java Swing to create this application. Using your develped system shop keepers should be able to create and print bill for the customers. The details of shopkeepers items are provided in a .csv file in following format: 
+
+name of item, unit-of-measurement, per-unit-price
+e.g.
+
+Pen, unit, 10.00
+Oil, lt, 120.00
+Washing Powder, kg, 80
+
+
+your application should use this .csv file to create list of items in invoice/bill. your system should also be able to send your bill to system printer on pressing print button. Also incorporate the auto-complete feature for assisting the shopkeeper
+
+link:- https://drive.google.com/drive/folders/1k8C2uXau7Eb4YMQeiFpjbRaBa5yJ1OVC

@@ -114,6 +114,96 @@ class ItemBilling {
     cb.setBounds(200, 150,200,30);    
     f.add(cb);              
     AutoCompleteDecorator.decorate(cb);
+
+/* Action Listener Section*/
+    b2.addActionListener(new ActionListener() {
+       public void actionPerformed(ActionEvent e) {
+            CustName = tf1.getText();
+            ContactNumber = tf2.getText();
+            DateOfPurchase = date;
+
+            Page = Page+"</table><br>";
+            Page = Page+"<hr><br>";
+            editorPane.setText(Page);
+            Page = Page+"<center><b>Total Cost: "+totalCost+"</b></center><br><br><br>";
+            editorPane.setText(Page);
+            Page = Page+"<b>Customer  Name: "+CustName+"</b><br>";
+            editorPane.setText(Page);
+            Page = Page+"<b>Contact Number: "+ContactNumber+"</b><br>";
+            editorPane.setText(Page);
+            Page = Page+"<b>Date of Purchase: "+DateOfPurchase+"</b><br>";
+            editorPane.setText(Page);
+            Page = Page+"<br><br><br><b><center>Thank you for shopping with us</center></b><br>";
+            editorPane.setText(Page);
+            Page = Page+"</body></html>";
+            
+        }
+    }
+    );
+
+
+    b1.addActionListener(new ActionListener() {
+        String line = "";  
+        String splitBy = ",";  
+
+        public void actionPerformed(ActionEvent e) {
+            String ItemName = cb.getSelectedItem().toString();
+            String ItemQty = tf4.getText();
+            addItemList(ItemName, ItemQty);
+        }
+        void addItemList(String ItemName, String ItemQty) {
+
+            int totalItemCost = 0;
+        try   
+        {  
+            //parsing a CSV file into BufferedReader class constructor  
+            BufferedReader br = new BufferedReader(new FileReader("menulist.csv"));  
+            while ((line = br.readLine()) != null)   //returns a Boolean value  
+            {  
+                String[] ItemDescription = line.split(splitBy);    // use comma as separator  
+                if(ItemName.equals(ItemDescription[0])) {
+                    totalItemCost = (Integer.parseInt(ItemQty))*(Integer.parseInt(ItemDescription[1]));
+                    totalCost += totalItemCost;
+                    Page = Page+"<tr><td>"+ItemName+"</td>"+"<td>"+ItemQty+"</td>"+"<td>"+totalItemCost+"</td></tr>";
+                    editorPane.setText(Page);
+                }
+                else {
+                    tf4.setText("");    
+                } 
+            }
+            br.close();    
+        }      
+        catch (IOException e)   
+        {  
+            e.printStackTrace();  
+        }     
+
+        }
+    });
+
+    b3.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent closing) {
+            System.exit(0);
+        }
+    });
+    
+    b4.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+            try {
+                BufferedWriter writer = new BufferedWriter(new FileWriter("outputBill.html"));
+                writer.write(editorPane.getText());
+                writer.close();
+                String[] commands1 = {"cmd", "/c", "C:/Program Files/Mozilla Firefox/firefox.exe","outputBill.html"};  // For Windows
+                String[] commands2 = {"firefox", "outputBill.html"};  // For Linux 
+                
+                Runtime rt = Runtime.getRuntime();
+                Process proc = rt.exec(commands2); 
+            } catch (IOException err) {
+                err.printStackTrace();
+            }
+            
+            }
+    });
   
 
 
